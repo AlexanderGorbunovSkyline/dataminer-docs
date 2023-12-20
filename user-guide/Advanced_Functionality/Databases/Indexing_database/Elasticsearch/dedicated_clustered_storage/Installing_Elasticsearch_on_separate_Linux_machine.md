@@ -19,14 +19,12 @@ If you choose not to use the recommended [Storage as a Service (STaaS)](xref:STa
 
 1. Make sure the firewall ports are open for Elasticsearch. Elasticsearch operates on TCP port 9200 and TCP port 9300.
 
-   - There is a default firewall on Linux, but this is disabled by default. To enable the firewall, use the following command:
+   - There is a default firewall on Linux, but this is disabled by default. To enable the firewall, use the command below:
 
-     `$ sudo ufw enable`
+     `$ sudo ufw allow 22/tcp && sudo ufw enable`
 
      > [!IMPORTANT]
-     > If you connect to your Linux server with SSH, you must immediately exclude port 22 or you will be locked out of the session.
-     >
-     > For this, use the following command: `$ sudo ufw allow 22/tcp`
+     > Note that this command also allows inbound SSH connections. Not allowing connections via TCP port 22 may result in being unable to connect to the server after enabling the firewall.
 
    - To add the correct ports to the firewall, you can for example use the following commands:
 
